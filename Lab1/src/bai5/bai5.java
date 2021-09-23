@@ -64,6 +64,6 @@ public class bai5 {
                 }
             }
         }
-        while(m!=0)
+        while(m!=0);
     }
 }

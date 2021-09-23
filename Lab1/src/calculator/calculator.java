@@ -107,6 +107,11 @@ public class calculator extends javax.swing.JFrame {
         jPanel2.add(jButton3);
 
         jButton8.setText("%");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8);
 
         jButton10.setText("4");
@@ -141,7 +146,12 @@ public class calculator extends javax.swing.JFrame {
         });
         jPanel2.add(jButton13);
 
-        jButton19.setText("C");
+        jButton19.setText("SQRT");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton19);
 
         jButton12.setText("7");
@@ -192,7 +202,7 @@ public class calculator extends javax.swing.JFrame {
         });
         jPanel2.add(jButton18);
 
-        jButton7.setText(".");
+        jButton7.setText("1/x");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -260,7 +270,6 @@ public class calculator extends javax.swing.JFrame {
         }
         String cmd = evt.getActionCommand();
         jTextField1.setText(jTextField1.getText() + cmd);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -287,7 +296,7 @@ public class calculator extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
-            int value = (int) Double.parseDouble(jTextField1.getText());
+            double value = Double.parseDouble(jTextField1.getText());
             value = -value;
             jTextField1.setText(""+value);
         }
@@ -311,20 +320,20 @@ public class calculator extends javax.swing.JFrame {
         }
         else{
             try{
-                int operand1 = (int) Double.parseDouble(operandl);
-                int operand2 = (int) Double.parseDouble(jTextField1.getText());
+                double operand1 = Double.parseDouble(operandl);
+                double operand2 = Double.parseDouble(jTextField1.getText());
                 double result = 0;
                 if(operantor.equals("+")){
-                    result = (int) (operand1 + operand2);
+                    result = (operand1 + operand2);
                 }
                 if(operantor.equals("-")){
-                    result = (int) (operand1 - operand2);
+                    result = (operand1 - operand2);
                 }
                 if(operantor.equals("*")){
-                    result = (int) (operand1 * operand2);
+                    result =(operand1 * operand2);
                 }
                 if(operantor.equals("/")){
-                    result = (int) (operand1 / operand2);
+                    result = (operand1 / operand2);
                 }
                 jTextField1.setText("" + result);
                 isEqual = true;
@@ -335,16 +344,49 @@ public class calculator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        double value = Double.parseDouble(jTextField1.getText());
-        jTextField1.setText(""+value);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
         jTextField1.setText("");
     }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        try{
+            double value = Double.parseDouble(jTextField1.getText());
+            value = value * 100;
+            jTextField1.setText(""+value);
+            isEqual = true;
+        }
+        catch(Exception e){
+            System.out.println("Lỗi");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        try{
+            double value = Double.parseDouble(jTextField1.getText());
+            value = 1/value;
+            jTextField1.setText(""+value);
+            isEqual = true;
+        }
+        catch(Exception e){
+            System.out.println("Lỗi");
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        try{
+            double value = Double.parseDouble(jTextField1.getText());
+            value = Math.sqrt(value);
+            jTextField1.setText(""+value);
+            isEqual = true;
+        }
+        catch(Exception e){
+            System.out.println("Lỗi");
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     /**
      * @param args the command line arguments

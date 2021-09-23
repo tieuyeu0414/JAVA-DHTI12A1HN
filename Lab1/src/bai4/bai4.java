@@ -19,7 +19,7 @@ public class bai4 {
             tiendien = sodien*5000;
         }
         else{
-            int sodienthua = (sodien - 50)*1200;
+            int sodienthua = (sodien - 50)*6200;
             tiendien = (sodienthua + 50*5000);
         } 
         
